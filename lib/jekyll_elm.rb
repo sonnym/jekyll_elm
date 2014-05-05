@@ -1,8 +1,6 @@
 require 'open3'
 require 'securerandom'
 
-require 'pry'
-
 module Jekyll
   class ElmConverter < Converter
     safe false
