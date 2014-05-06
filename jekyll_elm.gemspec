@@ -5,5 +5,5 @@ Gem::Specification.new do |s|
   s.author = 'Sonny Michaud'
   s.email = 'michaud.sonny@gmail.com'
   s.license = 'MIT'
-  s.files = ['lib/jekyll_elm.rb']
+  s.files = ['lib/jekyll_elm.rb', 'lib/elm_compiler.rb']
 end
