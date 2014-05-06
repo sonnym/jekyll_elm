@@ -15,7 +15,7 @@ class ElmCompiler
       File.open(tmp_path, 'w') { |f| f.write(@content) }
 
       in_elm_dir do
-        out, err, status = Open3.capture3("elm --make --runtime=/javascripts/elm-runtime.js #{tmp_file}.elm")
+        out, err, status = Open3.capture3("elm --make --runtime=/javascripts #{tmp_file}.elm")
 
         unless status.success?
           puts '*** ERROR: Elm'
