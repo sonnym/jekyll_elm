@@ -43,9 +43,7 @@ class ElmCompiler
     begin
       yield
     rescue Errno::ENOENT => e
-      puts e
-      puts "** ERROR: elm isn't installed or could not be found."
-      puts "** ERROR: To install with cabal run: cabal install elm"
+      puts "*** ERROR Elm: #{e.inspect}"
     ensure
       File.delete(tmp_path)
     end
