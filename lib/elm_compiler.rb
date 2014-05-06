@@ -24,7 +24,10 @@ class ElmCompiler
         end
       end
 
-      output = File.read(File.join(elm_dir, 'build', "#{tmp_file}.html")) if status.success?
+      if status.success?
+        output = File.read(dest_path)
+        File.delete(dest_path)
+      end
     end
 
     output
@@ -64,5 +67,9 @@ class ElmCompiler
 
   def tmp_path
     File.join(elm_dir, "#{tmp_file}.elm")
+  end
+
+  def dest_path
+    File.join(elm_dir, 'build', "#{tmp_file}.html")
   end
 end
