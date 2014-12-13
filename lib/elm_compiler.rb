@@ -12,21 +12,17 @@ class ElmCompiler
     output = '', status = nil
 
     with_error_handling do
-      File.open(tmp_path, 'w') { |f| f.write(@content) }
+      result = File.open(tmp_path, 'w') { |f| f.write(@content) }
 
-      in_elm_dir do
-        out, err, status = Open3.capture3("elm --make --runtime=/javascripts #{tmp_file}.elm")
-
-        unless status.success?
-          puts '*** ERROR: Elm'
-          puts "** OUT:\n#{out}"
-          puts "** ERR:\n#{err}"
-        end
-      end
+      out, err, status = Open3.capture3("elm-make #{tmp_path} --output #{dest_path} --yes")
 
       if status.success?
         output = File.read(dest_path)
         File.delete(dest_path)
+      else
+        puts '*** ERROR: Elm'
+        puts "** OUT:\n#{out}"
+        puts "** ERR:\n#{err}"
       end
     end
 
