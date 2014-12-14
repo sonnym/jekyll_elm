@@ -7,14 +7,6 @@ Compile Elm scripts and include them in a Jekyll site.
 1.  Add this line to your application's Gemfile `gem 'jekyll_elm'`.
 2.  And then execute `bundle`.
 3.  Add the following to your `_config.yml`: `gems: [jekyll_elm]`.
-4.  Copy `elm-runtime.js` into `javascripts`.
-
-This final step may eventually be streamlined.
-See: https://github.com/elm-lang/Elm/issues/492
-
-For the time being, you can find it in the following manner, assuming you
-have `cabal` configured to install packages in your home directory:
-`find ~/.cabal -name 'elm-runtime.js'`
 
 ## Usage
 
