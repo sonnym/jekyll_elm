@@ -1,4 +1,5 @@
 require 'elm_compiler'
+require 'pry'
 
 module Jekyll
   class ElmConverter < Converter
@@ -13,11 +14,7 @@ module Jekyll
     end
 
     def convert(content)
-      if content =~ /#{@config['excerpt_separator']}$/
-        content
-      else
-        ElmCompiler.new(content).process!
-      end
+      ElmCompiler.new(content).process!
     end
   end
 end
