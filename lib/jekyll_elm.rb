@@ -1,5 +1,4 @@
 require 'elm_compiler'
-require 'pry'
 
 module Jekyll
   class ElmConverter < Converter
