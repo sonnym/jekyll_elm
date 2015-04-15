@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = 'jekyll_elm'
-  s.version = '0.14.2'
+  s.version = '0.15.0'
   s.summary = 'Elm support for Jekyll'
   s.author = 'Sonny Michaud'
   s.email = 'michaud.sonny@gmail.com'
