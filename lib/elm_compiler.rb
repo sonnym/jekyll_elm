@@ -2,6 +2,8 @@ require 'open3'
 require 'securerandom'
 
 class ElmCompiler
+  ELM_COMMAND = 'PATH=$(yarn bin):$PATH elm make'
+
   def initialize(content)
     setup_dir
 
@@ -14,7 +16,7 @@ class ElmCompiler
     with_error_handling do
       result = File.open(tmp_path, 'w') { |f| f.write(@content) }
 
-      out, err, status = Open3.capture3("elm-make #{tmp_path} --output #{dest_path} --yes")
+      out, err, status = Open3.capture3("#{ELM_COMMAND} #{tmp_path} --output #{dest_path}")
 
       if status.success?
         output = File.read(dest_path)
